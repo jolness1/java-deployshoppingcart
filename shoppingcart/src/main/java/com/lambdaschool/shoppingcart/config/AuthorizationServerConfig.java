@@ -1,6 +1,7 @@
 package com.lambdaschool.shoppingcart.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -15,8 +16,15 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-    static final String CLIENT_ID = System.getenv("OAUTHCLIENTID");
-    static final String CLIENT_SECRET = System.getenv("OAUTHCLIENTSECRET");
+
+    @Value("${OAUTHCLIENTID:}")
+    private String CLIENT_ID;
+//    static final String CLIENT_ID = System.getenv("OAUTHCLIENTID");
+
+    @Value("${OAUTHCLIENTSECRET:}")
+    private String CLIENT_SECRET;
+
+//    static final String CLIENT_SECRET = System.getenv("OAUTHCLIENTSECRET");
 
     static final String GRANT_TYPE_PASSWORD = "password";
     static final String AUTHORIZATION_CODE = "authorization_code";

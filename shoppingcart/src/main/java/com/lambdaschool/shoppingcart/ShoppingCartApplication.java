@@ -2,6 +2,7 @@ package com.lambdaschool.shoppingcart;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 /**
@@ -9,6 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
  */
 @EnableJpaAuditing
 @SpringBootApplication
+@PropertySource(value =
+        "file:/Users/jacobolness/Documents/Git/unit4/guidedProjects/java-restaurants/secured-restaurants/web38rest.properties",
+        ignoreResourceNotFound = true)
 public class ShoppingCartApplication
 {
     /**
@@ -23,3 +27,4 @@ public class ShoppingCartApplication
             args);
     }
 }
+
